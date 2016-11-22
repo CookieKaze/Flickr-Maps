@@ -12,6 +12,6 @@
 - (void) updateImageCollectionWithTag: (NSString*) searchTag andLocation: (CLLocationCoordinate2D) coordinate;
 @end
 
-@interface SearchViewController : UIViewController <UITextFieldDelegate>
+@interface SearchViewController : UIViewController <UITextFieldDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) id<searchViewDelegate> delegate;
 @end

@@ -62,9 +62,17 @@
 
 - (void) updateImageCollectionWithTag: (NSString*) searchTag andLocation: (CLLocationCoordinate2D) coordinate {
     if (searchTag) {
+        NSString * lon = [NSString stringWithFormat:@"%f", coordinate.longitude];
+        NSString * lat = [NSString stringWithFormat:@"%f", coordinate.latitude];
+        NSURL * url;
+        if ([lon isEqualToString:@"0.000000"] && [lat isEqualToString:@"0.000000"]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=%@", searchTag]];
+        }else{
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=%@&lat=%@&lon=%@", searchTag, lat, lon]];
+            
+        }
         searchTag = [searchTag stringByReplacingOccurrencesOfString:@" " withString:@""];
         self.photoCollection = [[NSMutableArray alloc] init];
-        NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=%@", searchTag]];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         
         NSURLSessionConfiguration * config = [NSURLSessionConfiguration defaultSessionConfiguration];

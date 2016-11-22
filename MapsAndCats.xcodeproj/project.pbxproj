@@ -18,6 +18,7 @@
 		1D0EFBCA1DE4C33300FB5D95 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBC91DE4C33300FB5D95 /* MapViewController.m */; };
 		1D0EFBCD1DE4C3FD00FB5D95 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */; };
 		1D0EFBD01DE4CBDC00FB5D95 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */; };
+		1D4F678A1DE4DF1800165C43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4F67891DE4DF1800165C43 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1D0EFBCE1DE4CBDC00FB5D95 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		1D4F67891DE4DF1800165C43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D4F678A1DE4DF1800165C43 /* CoreLocation.framework in Frameworks */,
 				1D0EFBCD1DE4C3FD00FB5D95 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +109,7 @@
 		1D0EFBCB1DE4C3FC00FB5D95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D4F67891DE4DF1800165C43 /* CoreLocation.framework */,
 				1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -343,6 +347,7 @@
 				1D0EFBC11DE4A5F400FB5D95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

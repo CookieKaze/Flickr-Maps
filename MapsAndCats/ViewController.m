@@ -22,6 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.photoCollection = [[NSMutableArray alloc] init];
+    [self setCollectionViewSpacing];
+    [self getCatImages];
+    
+}
+
+-(void) getCatImages {
     NSURL * url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=cat"];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     
@@ -52,14 +58,7 @@
                                        }];
                                    }];
     [task resume];
-    
-    //Remove all spacing from flow layout
-    UICollectionViewFlowLayout * flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-    flowLayout.minimumLineSpacing = 0;
-    flowLayout.minimumInteritemSpacing = 0;
-    self.collectionView.collectionViewLayout = flowLayout;
 }
-
 -(void) getLocationData: (Photo *) photo {
     NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=83a51eb8204a6855817baba646a9a662&photo_id=%@&format=json&nojsoncallback=1", photo.photoID]];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
@@ -118,5 +117,12 @@
     }
 }
 
+-(void) setCollectionViewSpacing {
+    //Remove all spacing from flow layout
+    UICollectionViewFlowLayout * flowLayout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+    flowLayout.minimumLineSpacing = 0;
+    flowLayout.minimumInteritemSpacing = 0;
+    self.collectionView.collectionViewLayout = flowLayout;
+}
 
 @end

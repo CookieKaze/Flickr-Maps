@@ -18,4 +18,8 @@
     }
     return self;
 }
+
+-(void) setLat: (NSNumber*) locationLat andLong: (NSNumber*) locationLong {
+    self.coordinate = CLLocationCoordinate2DMake([locationLat doubleValue], [locationLong doubleValue]);
+}
 @end

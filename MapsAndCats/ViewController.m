@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Photo.h"
 #import "CollectionViewCell.h"
+#import "MapViewController.h"
 
 @interface ViewController ()
 @property (nonatomic) NSMutableArray * photoCollection;
@@ -59,6 +60,36 @@
     self.collectionView.collectionViewLayout = flowLayout;
 }
 
+-(void) getLocationData: (Photo *) photo {
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=83a51eb8204a6855817baba646a9a662&photo_id=%@&format=json&nojsoncallback=1", photo.photoID]];
+    NSURLRequest * request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionConfiguration * config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession * session = [NSURLSession sessionWithConfiguration:config];
+    NSURLSessionDataTask * task = [session
+                                   dataTaskWithRequest:request
+                                   completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                       if (error != nil) {
+                                           NSLog(@"Something went wrong with the data task: %@", error.localizedDescription);
+                                           return;
+                                       }
+                                       NSError * err = nil;
+                                       NSDictionary * flickrData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                                       if (err != nil) {
+                                           NSLog(@"Something went wrong with the JSON: %@", err.localizedDescription);
+                                           return;
+                                       }
+                                       
+                                       NSDictionary * locationInfo = flickrData[@"photo"][@"location"];
+                                       [photo setLat:locationInfo[@"latitude"] andLong:locationInfo[@"longitude"]];
+                                       
+                                       [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                           [self performSegueWithIdentifier:@"mapView" sender:photo];
+                                       }];
+                                   }];
+    [task resume];
+}
+
 #pragma mark - Collection DataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.photoCollection.count;
@@ -77,12 +108,15 @@
 
 #pragma mark - Collection Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-   
-    
+    [self getLocationData:self.photoCollection[indexPath.row]];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath*)sender {
-   }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(Photo*)sender {
+    MapViewController * mvc = [segue destinationViewController];
+    if ([segue.identifier isEqualToString: @"mapView"]) {
+        mvc.photo = sender;
+    }
+}
 
 
 @end

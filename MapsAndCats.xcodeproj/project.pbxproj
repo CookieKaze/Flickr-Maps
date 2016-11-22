@@ -15,6 +15,8 @@
 		1D0EFBBB1DE4A5F400FB5D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D0EFBB91DE4A5F400FB5D95 /* LaunchScreen.storyboard */; };
 		1D0EFBC41DE4A7D300FB5D95 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBC31DE4A7D300FB5D95 /* Photo.m */; };
 		1D0EFBC71DE4AD7F00FB5D95 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBC61DE4AD7F00FB5D95 /* CollectionViewCell.m */; };
+		1D0EFBCA1DE4C33300FB5D95 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBC91DE4C33300FB5D95 /* MapViewController.m */; };
+		1D0EFBCD1DE4C3FD00FB5D95 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		1D0EFBC31DE4A7D300FB5D95 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		1D0EFBC51DE4AD7F00FB5D95 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		1D0EFBC61DE4AD7F00FB5D95 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		1D0EFBC81DE4C33300FB5D95 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1D0EFBC91DE4C33300FB5D95 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0EFBCD1DE4C3FD00FB5D95 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +56,7 @@
 			children = (
 				1D0EFBAA1DE4A5F400FB5D95 /* MapsAndCats */,
 				1D0EFBA91DE4A5F400FB5D95 /* Products */,
+				1D0EFBCB1DE4C3FC00FB5D95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +76,8 @@
 				1D0EFBC21DE4A7D300FB5D95 /* Photo.h */,
 				1D0EFBC31DE4A7D300FB5D95 /* Photo.m */,
 				1D0EFBB41DE4A5F400FB5D95 /* Main.storyboard */,
+				1D0EFBC81DE4C33300FB5D95 /* MapViewController.h */,
+				1D0EFBC91DE4C33300FB5D95 /* MapViewController.m */,
 				1D0EFBC51DE4AD7F00FB5D95 /* CollectionViewCell.h */,
 				1D0EFBC61DE4AD7F00FB5D95 /* CollectionViewCell.m */,
 				1D0EFBBC1DE4A5F400FB5D95 /* Info.plist */,
@@ -87,6 +96,14 @@
 				1D0EFBAC1DE4A5F400FB5D95 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D0EFBCB1DE4C3FC00FB5D95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +180,7 @@
 				1D0EFBC41DE4A7D300FB5D95 /* Photo.m in Sources */,
 				1D0EFBC71DE4AD7F00FB5D95 /* CollectionViewCell.m in Sources */,
 				1D0EFBB31DE4A5F400FB5D95 /* ViewController.m in Sources */,
+				1D0EFBCA1DE4C33300FB5D95 /* MapViewController.m in Sources */,
 				1D0EFBB01DE4A5F400FB5D95 /* AppDelegate.m in Sources */,
 				1D0EFBAD1DE4A5F400FB5D95 /* main.m in Sources */,
 			);

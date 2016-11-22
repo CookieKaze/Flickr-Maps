@@ -17,4 +17,5 @@
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 
 -(instancetype)initWithID: (NSString*) photoID title: (NSString*) title url: (NSString*)url;
+-(void) setLat: (NSNumber*) locationLat andLong: (NSNumber*) locationLong;
 @end

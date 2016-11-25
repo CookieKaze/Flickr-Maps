@@ -10,6 +10,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Show All View Controller-->
+        <scene sceneID="tlw-Ra-yvl">
+            <objects>
+                <viewController id="nFC-fs-hhk" customClass="ShowAllViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gmz-ZD-tSO"/>
+                        <viewControllerLayoutGuide type="bottom" id="hix-is-W8N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CeL-ea-1da">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BsM-kO-W72">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BsM-kO-W72" firstAttribute="top" secondItem="gmz-ZD-tSO" secondAttribute="bottom" id="Egq-lG-Cmy"/>
+                            <constraint firstItem="hix-is-W8N" firstAttribute="top" secondItem="BsM-kO-W72" secondAttribute="bottom" id="VM2-GK-WoE"/>
+                            <constraint firstItem="BsM-kO-W72" firstAttribute="leading" secondItem="CeL-ea-1da" secondAttribute="leading" id="dZH-9c-LKZ"/>
+                            <constraint firstAttribute="trailing" secondItem="BsM-kO-W72" secondAttribute="trailing" id="f6F-PB-9sf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="BsM-kO-W72" id="b3Z-Y2-2iC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="srF-yG-cMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="-544"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -101,6 +133,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Bc4-50-ZKk">
+                        <barButtonItem key="leftBarButtonItem" title="Show All" id="AVb-Pc-9Z9">
+                            <connections>
+                                <segue destination="nFC-fs-hhk" kind="show" identifier="showAll" id="5Xf-KL-S4i"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Search" id="0li-D7-RJU">
                             <connections>
                                 <segue destination="vaO-aC-7v7" kind="show" identifier="searchView" id="OND-bP-ZA5"/>
@@ -257,23 +294,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qW5-pI-jVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-79.200000000000003" y="138.98050974512745"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ir0-uf-Pu0">
-            <objects>
-                <viewController id="aAA-fk-g2A" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Hd7-Wm-8YN"/>
-                        <viewControllerLayoutGuide type="bottom" id="8Hy-eH-XdZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iVv-ws-liO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="19V-ot-r9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>

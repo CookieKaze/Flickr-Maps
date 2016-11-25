@@ -19,6 +19,7 @@
 		1D0EFBCD1DE4C3FD00FB5D95 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D0EFBCC1DE4C3FC00FB5D95 /* MapKit.framework */; };
 		1D0EFBD01DE4CBDC00FB5D95 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */; };
 		1D4F678A1DE4DF1800165C43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4F67891DE4DF1800165C43 /* CoreLocation.framework */; };
+		1D81A4791DE8A5FC0034951F /* ShowAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81A4781DE8A5FC0034951F /* ShowAllViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		1D0EFBCE1DE4CBDC00FB5D95 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		1D4F67891DE4DF1800165C43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D81A4771DE8A5FC0034951F /* ShowAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAllViewController.h; sourceTree = "<group>"; };
+		1D81A4781DE8A5FC0034951F /* ShowAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowAllViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 				1D0EFBC21DE4A7D300FB5D95 /* Photo.h */,
 				1D0EFBC31DE4A7D300FB5D95 /* Photo.m */,
 				1D0EFBB41DE4A5F400FB5D95 /* Main.storyboard */,
+				1D81A4771DE8A5FC0034951F /* ShowAllViewController.h */,
+				1D81A4781DE8A5FC0034951F /* ShowAllViewController.m */,
 				1D0EFBCE1DE4CBDC00FB5D95 /* SearchViewController.h */,
 				1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */,
 				1D0EFBC81DE4C33300FB5D95 /* MapViewController.h */,
@@ -189,6 +194,7 @@
 				1D0EFBC41DE4A7D300FB5D95 /* Photo.m in Sources */,
 				1D0EFBC71DE4AD7F00FB5D95 /* CollectionViewCell.m in Sources */,
 				1D0EFBB31DE4A5F400FB5D95 /* ViewController.m in Sources */,
+				1D81A4791DE8A5FC0034951F /* ShowAllViewController.m in Sources */,
 				1D0EFBCA1DE4C33300FB5D95 /* MapViewController.m in Sources */,
 				1D0EFBB01DE4A5F400FB5D95 /* AppDelegate.m in Sources */,
 				1D0EFBAD1DE4A5F400FB5D95 /* main.m in Sources */,

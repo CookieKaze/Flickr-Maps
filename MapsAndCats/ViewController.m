@@ -11,6 +11,7 @@
 #import "CollectionViewCell.h"
 #import "MapViewController.h"
 #import "SearchViewController.h"
+#import "ShowAllViewController.h"
 
 @interface ViewController ()
 @property (nonatomic) NSMutableArray * photoCollection;
@@ -49,6 +50,7 @@
                                        NSArray * photos = flickrData[@"photos"][@"photo"];
                                        for (NSDictionary * photoInfo in photos){
                                            Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"]];
+                                           [self getLocationData:photo];
                                            [self.photoCollection addObject:photo];
                                        }
                                        
@@ -127,9 +129,7 @@
                                        NSDictionary * locationInfo = flickrData[@"photo"][@"location"];
                                        [photo setLat:locationInfo[@"latitude"] andLong:locationInfo[@"longitude"]];
                                        
-                                       [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                           [self performSegueWithIdentifier:@"mapView" sender:photo];
-                                       }];
+                    
                                    }];
     [task resume];
 }
@@ -152,7 +152,7 @@
 
 #pragma mark - Collection Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self getLocationData:self.photoCollection[indexPath.row]];
+        [self performSegueWithIdentifier:@"mapView" sender:self.photoCollection[indexPath.row]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(Photo*)sender {
@@ -163,6 +163,10 @@
     if ([segue.identifier isEqualToString:@"searchView"]) {
         self.searchView = [segue destinationViewController];
         self.searchView.delegate = self;
+    }
+    if ([segue.identifier isEqualToString:@"showAll"]) {
+        ShowAllViewController * showAllView = [segue destinationViewController];
+        showAllView.photos = [self.photoCollection copy];
     }
 }
 

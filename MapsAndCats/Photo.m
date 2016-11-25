@@ -15,7 +15,7 @@
         _photoID = photoID;
         _title = title;
         _url = url;
-        NSURL * url = [NSURL URLWithString:_thumbnail];
+        NSURL * url = [NSURL URLWithString:thumbnail];
         NSData * imageData = [NSData dataWithContentsOfURL:url];
         _image= [UIImage imageWithData:imageData];
     }

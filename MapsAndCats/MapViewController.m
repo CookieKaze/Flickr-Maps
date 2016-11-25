@@ -27,12 +27,9 @@
     [self.mapView addAnnotation:self.photo];
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Photo*)annotation {
     MKAnnotationView * view = [[MKAnnotationView alloc] initWithAnnotation:self.photo reuseIdentifier:@"withImage"];
-    NSURL * url = [NSURL URLWithString:self.photo.thumbnail];
-    NSData * imageData = [NSData dataWithContentsOfURL:url];
-    UIImage * thumbnail = [UIImage imageWithData:imageData];
-    view.image = thumbnail;
+    view.image = annotation.image;
     return view;
 }
 @end

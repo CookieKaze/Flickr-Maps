@@ -20,6 +20,7 @@
 		1D0EFBD01DE4CBDC00FB5D95 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */; };
 		1D4F678A1DE4DF1800165C43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4F67891DE4DF1800165C43 /* CoreLocation.framework */; };
 		1D81A4791DE8A5FC0034951F /* ShowAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81A4781DE8A5FC0034951F /* ShowAllViewController.m */; };
+		1D81A47C1DE8CCE60034951F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D81A47A1DE8CCE60034951F /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		1D4F67891DE4DF1800165C43 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1D81A4771DE8A5FC0034951F /* ShowAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAllViewController.h; sourceTree = "<group>"; };
 		1D81A4781DE8A5FC0034951F /* ShowAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowAllViewController.m; sourceTree = "<group>"; };
+		1D81A47B1DE8CCE60034951F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				1D0EFBB71DE4A5F400FB5D95 /* Assets.xcassets */,
 				1D0EFBB91DE4A5F400FB5D95 /* LaunchScreen.storyboard */,
 				1D0EFBAC1DE4A5F400FB5D95 /* main.m */,
+				1D81A47A1DE8CCE60034951F /* CoreData.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				1D0EFBC41DE4A7D300FB5D95 /* Photo.m in Sources */,
 				1D0EFBC71DE4AD7F00FB5D95 /* CollectionViewCell.m in Sources */,
+				1D81A47C1DE8CCE60034951F /* CoreData.xcdatamodeld in Sources */,
 				1D0EFBB31DE4A5F400FB5D95 /* ViewController.m in Sources */,
 				1D81A4791DE8A5FC0034951F /* ShowAllViewController.m in Sources */,
 				1D0EFBCA1DE4C33300FB5D95 /* MapViewController.m in Sources */,
@@ -356,6 +360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D81A47A1DE8CCE60034951F /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D81A47B1DE8CCE60034951F /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 1D81A47B1DE8CCE60034951F /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1D0EFBA01DE4A5F400FB5D95 /* Project object */;
 }

@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "Photo.h"
 
-@interface ShowAllViewController ()
+@interface ShowAllViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
@@ -19,11 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    MKCoordinateSpan span = MKCoordinateSpanMake(0.05f, 0.05f);
-//    self.mapView.region = MKCoordinateRegionMake(photo.coordinate, span);
     [self.mapView addAnnotations:self.photos];
     
 }
 
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Photo*)annotation {
+    MKAnnotationView * view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"withImage"];
+    view.image = annotation.image;
+    return view;
+}
 
 @end

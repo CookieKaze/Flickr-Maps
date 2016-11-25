@@ -14,8 +14,9 @@
 @property (nonatomic, readonly) NSString * photoID;
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic, readonly) NSString * url;
+@property (nonatomic, readonly) UIImage * image;
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 
--(instancetype)initWithID: (NSString*) photoID title: (NSString*) title url: (NSString*)url;
+-(instancetype)initWithID: (NSString*) photoID title: (NSString*) title url: (NSString*)url thumbnail: (NSString*)thumbnail;
 -(void) setLat: (NSNumber*) locationLat andLong: (NSNumber*) locationLong;
 @end

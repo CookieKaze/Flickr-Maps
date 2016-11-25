@@ -10,9 +10,10 @@
 #import "Photo.h"
 #import <MapKit/MapKit.h>
 
-@interface MapViewController ()
+@interface MapViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
+
 
 @end
 
@@ -26,5 +27,12 @@
     [self.mapView addAnnotation:self.photo];
 }
 
-
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView * view = [[MKAnnotationView alloc] initWithAnnotation:self.photo reuseIdentifier:@"withImage"];
+    NSURL * url = [NSURL URLWithString:self.photo.thumbnail];
+    NSData * imageData = [NSData dataWithContentsOfURL:url];
+    UIImage * thumbnail = [UIImage imageWithData:imageData];
+    view.image = thumbnail;
+    return view;
+}
 @end

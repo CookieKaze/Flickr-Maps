@@ -28,7 +28,7 @@
     [self setCollectionViewSpacing];
     
     
-    NSURL * url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=cat"];
+    NSURL * url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m,url_sq&tags=cat"];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     
     NSURLSessionConfiguration * config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -49,7 +49,7 @@
                                        
                                        NSArray * photos = flickrData[@"photos"][@"photo"];
                                        for (NSDictionary * photoInfo in photos){
-                                           Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"]];
+                                           Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"] thumbnail: photoInfo[@"url_sq"]];
                                            [self getLocationData:photo];
                                            [self.photoCollection addObject:photo];
                                        }
@@ -95,7 +95,7 @@
                                            
                                            NSArray * photos = flickrData[@"photos"][@"photo"];
                                            for (NSDictionary * photoInfo in photos){
-                                               Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"]];
+                                               Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"] thumbnail:photoInfo[@"url_sq"]];
                                                [self.photoCollection addObject:photo];
                                            }
                                            

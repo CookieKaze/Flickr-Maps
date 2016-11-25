@@ -9,12 +9,15 @@
 #import "Photo.h"
 
 @implementation Photo
--(instancetype)initWithID: (NSString*) photoID title: (NSString*) title url: (NSString*)url {
+-(instancetype)initWithID: (NSString*) photoID title: (NSString*) title url: (NSString*)url thumbnail: (NSString*)thumbnail {
     self = [super init];
     if (self) {
         _photoID = photoID;
         _title = title;
         _url = url;
+        NSURL * url = [NSURL URLWithString:_thumbnail];
+        NSData * imageData = [NSData dataWithContentsOfURL:url];
+        _image= [UIImage imageWithData:imageData];
     }
     return self;
 }

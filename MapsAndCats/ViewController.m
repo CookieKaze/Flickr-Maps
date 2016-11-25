@@ -12,6 +12,9 @@
 #import "MapViewController.h"
 #import "SearchViewController.h"
 #import "ShowAllViewController.h"
+#import "Image+CoreDataClass.h"
+
+
 
 @interface ViewController ()
 @property (nonatomic) NSMutableArray * photoCollection;

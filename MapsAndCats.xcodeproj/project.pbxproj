@@ -20,7 +20,7 @@
 		1D0EFBD01DE4CBDC00FB5D95 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D0EFBCF1DE4CBDC00FB5D95 /* SearchViewController.m */; };
 		1D4F678A1DE4DF1800165C43 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4F67891DE4DF1800165C43 /* CoreLocation.framework */; };
 		1D81A4791DE8A5FC0034951F /* ShowAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D81A4781DE8A5FC0034951F /* ShowAllViewController.m */; };
-		1D81A47C1DE8CCE60034951F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D81A47A1DE8CCE60034951F /* CoreData.xcdatamodeld */; };
+		1DEB9FC31DE8DC2600AD0BD2 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D81A47A1DE8CCE60034951F /* CoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,9 +194,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEB9FC31DE8DC2600AD0BD2 /* CoreData.xcdatamodeld in Sources */,
 				1D0EFBC41DE4A7D300FB5D95 /* Photo.m in Sources */,
 				1D0EFBC71DE4AD7F00FB5D95 /* CollectionViewCell.m in Sources */,
-				1D81A47C1DE8CCE60034951F /* CoreData.xcdatamodeld in Sources */,
 				1D0EFBB31DE4A5F400FB5D95 /* ViewController.m in Sources */,
 				1D81A4791DE8A5FC0034951F /* ShowAllViewController.m in Sources */,
 				1D0EFBCA1DE4C33300FB5D95 /* MapViewController.m in Sources */,

@@ -21,11 +21,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     self.navTitle.title = self.photo.title;
     MKCoordinateSpan span = MKCoordinateSpanMake(0.05f, 0.05f);
     self.mapView.region = MKCoordinateRegionMake(self.photo.coordinate, span);
     [self.mapView addAnnotation:self.photo];
 }
+
+
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(Photo*)annotation {
     MKAnnotationView * view = [[MKAnnotationView alloc] initWithAnnotation:self.photo reuseIdentifier:@"withImage"];

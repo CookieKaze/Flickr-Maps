@@ -30,7 +30,10 @@
     self.photoCollection = [[NSMutableArray alloc] init];
     [self setCollectionViewSpacing];
     
-    
+    [self loadCats];
+}
+
+- (void) loadCats {
     NSURL * url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m,url_sq&tags=cat"];
     NSURLRequest * request = [NSURLRequest requestWithURL:url];
     
@@ -62,22 +65,21 @@
                                        }];
                                    }];
     [task resume];
-    
 }
 
 - (void) updateImageCollectionWithTag: (NSString*) searchTag andLocation: (CLLocationCoordinate2D) coordinate {
+    
     if (searchTag) {
+        [self.photoCollection removeAllObjects];
         NSString * lon = [NSString stringWithFormat:@"%f", coordinate.longitude];
         NSString * lat = [NSString stringWithFormat:@"%f", coordinate.latitude];
         NSURL * url;
         if ([lon isEqualToString:@"0.000000"] && [lat isEqualToString:@"0.000000"]) {
-            url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=%@", searchTag]];
+            url = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m,url_sq&tags=%@", searchTag]];
         }else{
-            url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m&tags=%@&lat=%@&lon=%@", searchTag, lat, lon]];
+            url = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51eb8204a6855817baba646a9a662&sort=relevance&has_geo=1&per_page=100&format=json&nojsoncallback=1&extras=url_m,url_sq&tags=%@&lat=%@&lon=%@", searchTag, lat, lon]];
             
         }
-        searchTag = [searchTag stringByReplacingOccurrencesOfString:@" " withString:@""];
-        self.photoCollection = [[NSMutableArray alloc] init];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         
         NSURLSessionConfiguration * config = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -98,7 +100,8 @@
                                            
                                            NSArray * photos = flickrData[@"photos"][@"photo"];
                                            for (NSDictionary * photoInfo in photos){
-                                               Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"] thumbnail:photoInfo[@"url_sq"]];
+                                               Photo * photo = [[Photo alloc] initWithID:photoInfo[@"id"] title:photoInfo[@"title"] url:photoInfo[@"url_m"] thumbnail: photoInfo[@"url_sq"]];
+                                               [self getLocationData:photo];
                                                [self.photoCollection addObject:photo];
                                            }
                                            
@@ -132,7 +135,7 @@
                                        NSDictionary * locationInfo = flickrData[@"photo"][@"location"];
                                        [photo setLat:locationInfo[@"latitude"] andLong:locationInfo[@"longitude"]];
                                        
-                    
+                                       
                                    }];
     [task resume];
 }
@@ -155,7 +158,7 @@
 
 #pragma mark - Collection Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-        [self performSegueWithIdentifier:@"mapView" sender:self.photoCollection[indexPath.row]];
+    [self performSegueWithIdentifier:@"mapView" sender:self.photoCollection[indexPath.row]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(Photo*)sender {

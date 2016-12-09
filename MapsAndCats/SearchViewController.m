@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
 @property (nonatomic) CLLocationManager * locationManager;
 @property (nonatomic) CLLocation * location;
+@property (weak, nonatomic) IBOutlet UIView *locationSwitchView;
 
 @end
 
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.locationSwitchView setHidden:YES];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];

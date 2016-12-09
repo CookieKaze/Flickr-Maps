@@ -239,6 +239,7 @@
                     </view>
                     <connections>
                         <outlet property="locationSwitch" destination="mub-MI-M9S" id="MoW-Bm-Lbo"/>
+                        <outlet property="locationSwitchView" destination="1Aa-6Y-Y6N" id="lGQ-Ge-baf"/>
                         <outlet property="searchBar" destination="uIu-LL-QA0" id="hbj-Dg-06T"/>
                     </connections>
                 </viewController>
